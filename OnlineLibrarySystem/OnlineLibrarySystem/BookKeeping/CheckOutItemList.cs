@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace OnlineLibrarySystem
 {
-    class CheckOutItemList
+    public class CheckOutItemList
     {
         public List<CheckOutItemList> ListOfcheckOutItem { get; set; }
 

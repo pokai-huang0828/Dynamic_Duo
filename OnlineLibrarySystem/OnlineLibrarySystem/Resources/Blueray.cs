@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace OnlineLibrarySystem.Resources
 {
-    class Blueray
+    public class Blueray
     {
         public string Length { get; set; }
         public string Language { get; set; }

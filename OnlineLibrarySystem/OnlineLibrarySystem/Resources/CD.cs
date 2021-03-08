@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace OnlineLibrarySystem.Resources
 {
-    class CD : Audio
+    public class CD : Audio
     {
         public string Artist { get; set; }
         public string Genre { get; set; }

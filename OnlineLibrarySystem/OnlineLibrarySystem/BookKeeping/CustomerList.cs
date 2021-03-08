@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace OnlineLibrarySystem
 {
-    class CustomerList
+    public class CustomerList
     {
         public List<Customer> ListOfCustomer { get; set; }
 

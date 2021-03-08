@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace OnlineLibrarySystem
 {
-    class WaitingItem
+    public class WaitingItem
     {
         public string ResourceID { get; set; }
         public string CustomerID { get; set; }

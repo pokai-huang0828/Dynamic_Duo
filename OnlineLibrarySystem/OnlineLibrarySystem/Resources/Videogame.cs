@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace OnlineLibrarySystem.Resources
 {
-    class Videogame : Video
+    public class Videogame : Video
     {
         public int YearOfPublish { get; set; }
     }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace OnlineLibrarySystem.Resources
 {
-    class Magazine : Reading
+    public class Magazine : Reading
     {
         public int IssueNumber { get; set; }
         public string Subject { get; set; }

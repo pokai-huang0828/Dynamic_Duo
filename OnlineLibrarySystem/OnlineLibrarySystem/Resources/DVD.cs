@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace OnlineLibrarySystem.Resources
 {
-    class DVD : Video
+    public class DVD : Video
     {
         public string Length { get; set; }
         public string Language { get; set; }
