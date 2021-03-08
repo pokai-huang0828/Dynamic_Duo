@@ -43,8 +43,30 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Resources\Blueray.cs" />
+    <Compile Include="Resources\Book.cs" />
+    <Compile Include="Resources\CD.cs" />
+    <Compile Include="Resources\DVD.cs" />
+    <Compile Include="Resources\Magazine.cs" />
+    <Compile Include="Resources\Video.cs" />
+    <Compile Include="Resources\Audio.cs" />
+    <Compile Include="Resources\Videogame.cs" />
+    <Compile Include="Users\Address.cs" />
+    <Compile Include="BookKeeping\CheckOutItem.cs" />
+    <Compile Include="BookKeeping\CheckOutItemList.cs" />
+    <Compile Include="Users\Customer.cs" />
+    <Compile Include="BookKeeping\CustomerList.cs" />
+    <Compile Include="Services\DeliveryService.cs" />
+    <Compile Include="BookKeeping\Inventory.cs" />
+    <Compile Include="Users\Manager.cs" />
+    <Compile Include="Users\Phone.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Resources\Reading.cs" />
+    <Compile Include="Resources\Resource.cs" />
+    <Compile Include="Users\User.cs" />
+    <Compile Include="BookKeeping\WaitingItem.cs" />
+    <Compile Include="BookKeeping\WaitingList.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
