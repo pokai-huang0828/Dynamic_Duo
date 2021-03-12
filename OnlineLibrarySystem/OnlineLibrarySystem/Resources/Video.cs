@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace OnlineLibrarySystem.Resources
 {
-    public abstract class Video
+    public abstract class Video : Resource
     {
         public int TrackNumber { get; set; }
         public float Duration { get; set; }

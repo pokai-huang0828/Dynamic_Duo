@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace OnlineLibrarySystem.Resources
 {
-    public abstract class Audio
+    public abstract class Audio : Resource
     {
         public int TrackNumber { get; set; }
         public float Duration { get; set; }

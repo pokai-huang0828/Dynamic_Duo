@@ -8,9 +8,10 @@ namespace OnlineLibrarySystem
 {
     public abstract class Resource
     {
-        public string ResourceID { get; set; }
+        public int ResourceID { get; set; }
         public string Title { get; set; }
-        public string CopyInStock { get; set; }
-        public string TotelNumberOfCopies { get; set; }
+        public int CopyInStock { get; set; }
+        public int TotelNumberOfCopies { get; set; }
+
     }
 }

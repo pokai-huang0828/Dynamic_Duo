@@ -52,10 +52,10 @@
     <Compile Include="Resources\Audio.cs" />
     <Compile Include="Resources\Videogame.cs" />
     <Compile Include="Users\Address.cs" />
-    <Compile Include="BookKeeping\CheckOutItem.cs" />
-    <Compile Include="BookKeeping\CheckOutItemList.cs" />
+    <Compile Include="BookKeeping\CheckOut.cs" />
+    <Compile Include="BookKeeping\CheckOutList.cs" />
     <Compile Include="Users\Customer.cs" />
-    <Compile Include="BookKeeping\CustomerList.cs" />
+    <Compile Include="BookKeeping\UserList.cs" />
     <Compile Include="Services\DeliveryService.cs" />
     <Compile Include="BookKeeping\Inventory.cs" />
     <Compile Include="Users\Manager.cs" />

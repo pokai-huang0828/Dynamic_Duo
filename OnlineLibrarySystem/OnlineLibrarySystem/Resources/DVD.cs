@@ -10,5 +10,11 @@ namespace OnlineLibrarySystem.Resources
     {
         public string Length { get; set; }
         public string Language { get; set; }
+
+        public DVD(int t)
+        {
+            TotelNumberOfCopies = t;
+            CopyInStock = t;
+        }
     }
 }

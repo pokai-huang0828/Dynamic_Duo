@@ -8,7 +8,14 @@ namespace OnlineLibrarySystem
 {
     public class WaitingItem
     {
-        public string ResourceID { get; set; }
-        public string CustomerID { get; set; }
+        public int WaitingItemID { get; set; }
+        public int ResourceID { get; set; }
+        public int UserID { get; set; }
+
+        public WaitingItem(int resourceID, int userID)
+        {
+            ResourceID = resourceID;
+            UserID = userID;
+        }
     }
 }

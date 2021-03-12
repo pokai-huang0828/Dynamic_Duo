@@ -8,7 +8,7 @@ namespace OnlineLibrarySystem
 {
     public class Manager : User
     {
-        public string ManagerID { get; set; }
+        public string Salary { get; set; }
     }
 
 }

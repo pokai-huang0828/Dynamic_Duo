@@ -9,5 +9,12 @@ namespace OnlineLibrarySystem.Resources
     public class Videogame : Video
     {
         public int YearOfPublish { get; set; }
+
+        public Videogame(int t)
+        {
+            TotelNumberOfCopies = t;
+            CopyInStock = t;
+        }
+
     }
 }

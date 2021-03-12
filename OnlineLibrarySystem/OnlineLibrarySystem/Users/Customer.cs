@@ -8,7 +8,7 @@ namespace OnlineLibrarySystem
 {
     public class Customer : User
     {
-        public string CustomerID { get; set; }
+        public string UnpaidFine { get; set; }
     }
 
 }

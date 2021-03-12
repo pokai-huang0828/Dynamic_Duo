@@ -10,5 +10,11 @@ namespace OnlineLibrarySystem.Resources
     {
         public int IssueNumber { get; set; }
         public string Subject { get; set; }
+
+        public Magazine(int t)
+        {
+            TotelNumberOfCopies = t;
+            CopyInStock = t;
+        }
     }
 }

@@ -11,5 +11,11 @@ namespace OnlineLibrarySystem.Resources
         public string Author { get; set; }
         public int YearOfPublish { get; set; }
         public string Genre { get; set; }
+
+        public Book(int t)
+        {
+            TotelNumberOfCopies = t;
+            CopyInStock = t;
+        }
     }
 }

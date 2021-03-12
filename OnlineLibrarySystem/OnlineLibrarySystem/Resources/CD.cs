@@ -12,5 +12,11 @@ namespace OnlineLibrarySystem.Resources
         public string Genre { get; set; }
         public string Language { get; set; }
         public string Length { get; set; }
+
+        public CD(int t)
+        {
+            TotelNumberOfCopies = t;
+            CopyInStock = t;
+        }
     }
 }
