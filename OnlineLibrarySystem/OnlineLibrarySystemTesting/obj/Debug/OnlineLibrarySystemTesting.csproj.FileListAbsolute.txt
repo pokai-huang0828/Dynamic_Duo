@@ -1,0 +1,10 @@
+C:\Users\eric1\OneDrive\desktop\Dynamic_Duo Project\OnlineLibrarySystem\OnlineLibrarySystemTesting\bin\Debug\OnlineLibrarySystemTesting.exe.config
+C:\Users\eric1\OneDrive\desktop\Dynamic_Duo Project\OnlineLibrarySystem\OnlineLibrarySystemTesting\bin\Debug\OnlineLibrarySystemTesting.exe
+C:\Users\eric1\OneDrive\desktop\Dynamic_Duo Project\OnlineLibrarySystem\OnlineLibrarySystemTesting\bin\Debug\OnlineLibrarySystemTesting.pdb
+C:\Users\eric1\OneDrive\desktop\Dynamic_Duo Project\OnlineLibrarySystem\OnlineLibrarySystemTesting\bin\Debug\OnlineLibrarySystemLib.dll
+C:\Users\eric1\OneDrive\desktop\Dynamic_Duo Project\OnlineLibrarySystem\OnlineLibrarySystemTesting\bin\Debug\OnlineLibrarySystemLib.pdb
+C:\Users\eric1\OneDrive\desktop\Dynamic_Duo Project\OnlineLibrarySystem\OnlineLibrarySystemTesting\obj\Debug\OnlineLibrarySystemTesting.csprojAssemblyReference.cache
+C:\Users\eric1\OneDrive\desktop\Dynamic_Duo Project\OnlineLibrarySystem\OnlineLibrarySystemTesting\obj\Debug\OnlineLibrarySystemTesting.csproj.CoreCompileInputs.cache
+C:\Users\eric1\OneDrive\desktop\Dynamic_Duo Project\OnlineLibrarySystem\OnlineLibrarySystemTesting\obj\Debug\OnlineLibrarySystemTesting.csproj.CopyComplete
+C:\Users\eric1\OneDrive\desktop\Dynamic_Duo Project\OnlineLibrarySystem\OnlineLibrarySystemTesting\obj\Debug\OnlineLibrarySystemTesting.exe
+C:\Users\eric1\OneDrive\desktop\Dynamic_Duo Project\OnlineLibrarySystem\OnlineLibrarySystemTesting\obj\Debug\OnlineLibrarySystemTesting.pdb

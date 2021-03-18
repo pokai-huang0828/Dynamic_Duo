@@ -1,7 +1,0 @@
-C:\Users\eric1\OneDrive\desktop\Dynamic_Duo Project\OnlineLibrarySystem\OnlineLibrarySystem\bin\Debug\OnlineLibrarySystem.exe.config
-C:\Users\eric1\OneDrive\desktop\Dynamic_Duo Project\OnlineLibrarySystem\OnlineLibrarySystem\bin\Debug\OnlineLibrarySystem.exe
-C:\Users\eric1\OneDrive\desktop\Dynamic_Duo Project\OnlineLibrarySystem\OnlineLibrarySystem\bin\Debug\OnlineLibrarySystem.pdb
-C:\Users\eric1\OneDrive\desktop\Dynamic_Duo Project\OnlineLibrarySystem\OnlineLibrarySystem\obj\Debug\OnlineLibrarySystem.csprojAssemblyReference.cache
-C:\Users\eric1\OneDrive\desktop\Dynamic_Duo Project\OnlineLibrarySystem\OnlineLibrarySystem\obj\Debug\OnlineLibrarySystem.csproj.CoreCompileInputs.cache
-C:\Users\eric1\OneDrive\desktop\Dynamic_Duo Project\OnlineLibrarySystem\OnlineLibrarySystem\obj\Debug\OnlineLibrarySystem.exe
-C:\Users\eric1\OneDrive\desktop\Dynamic_Duo Project\OnlineLibrarySystem\OnlineLibrarySystem\obj\Debug\OnlineLibrarySystem.pdb
