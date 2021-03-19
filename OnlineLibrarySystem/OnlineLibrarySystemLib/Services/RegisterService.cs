@@ -6,7 +6,27 @@ using System.Threading.Tasks;
 
 namespace OnlineLibrarySystemLib.Services
 {
-    class RegisterService
+    public class RegisterService
     {
+        private readonly UserRepository userRepository;
+
+        public RegisterService()
+        {
+            userRepository = new UserRepository();
+        }
+
+        public int? RegisterUser(IUser user)
+        {
+            try
+            {
+                return userRepository.Add(user);
+
+            } catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+
+            return null;
+        }
     }
 }

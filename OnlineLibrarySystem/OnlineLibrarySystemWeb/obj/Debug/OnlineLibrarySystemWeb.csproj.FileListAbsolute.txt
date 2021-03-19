@@ -84,3 +84,5 @@ C:\Users\eric1\OneDrive\desktop\Dynamic_Duo Project\OnlineLibrarySystem\OnlineLi
 C:\Users\eric1\OneDrive\desktop\Dynamic_Duo Project\OnlineLibrarySystem\OnlineLibrarySystemWeb\obj\Debug\OnlineLibrarySystemWeb.csproj.CopyComplete
 C:\Users\eric1\OneDrive\desktop\Dynamic_Duo Project\OnlineLibrarySystem\OnlineLibrarySystemWeb\obj\Debug\OnlineLibrarySystemWeb.dll
 C:\Users\eric1\OneDrive\desktop\Dynamic_Duo Project\OnlineLibrarySystem\OnlineLibrarySystemWeb\obj\Debug\OnlineLibrarySystemWeb.pdb
+C:\Users\eric1\OneDrive\desktop\Dynamic_Duo Project\OnlineLibrarySystem\OnlineLibrarySystemWeb\bin\OnlineLibrarySystemLib.dll
+C:\Users\eric1\OneDrive\desktop\Dynamic_Duo Project\OnlineLibrarySystem\OnlineLibrarySystemWeb\bin\OnlineLibrarySystemLib.pdb

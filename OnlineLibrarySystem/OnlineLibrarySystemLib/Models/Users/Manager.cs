@@ -18,6 +18,12 @@ namespace OnlineLibrarySystemLib
         public string Password { get; set; }
         public Address Address { get; set; }
         public Phone PhoneNumber { get; set; }
+
+        public Manager(string email, string password)
+        {
+            Email = email;
+            Password = password;
+        }
     }
 
 }

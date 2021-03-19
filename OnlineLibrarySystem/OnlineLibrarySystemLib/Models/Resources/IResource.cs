@@ -11,6 +11,8 @@ namespace OnlineLibrarySystemLib
         int ResourceID { get; set; }
         string Title { get; set; }
         int CopyInStock { get; set; }
-        int TotelNumberOfCopies { get; set; }
+        int TotalNumberOfCopies { get; set; }
+
+        void InitializeResource(string title, int totalNumberOfCopies);
     }
 }

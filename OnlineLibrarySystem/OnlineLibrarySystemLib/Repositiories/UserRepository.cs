@@ -5,99 +5,76 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Reflection;
+using OnlineLibrarySystemLib.Models.Data;
 
 namespace OnlineLibrarySystemLib
 {
     public class UserRepository : ILibraryRespository<IUser>, IBasicSearch<IUser, UserType>
     {
-        private List<IUser> _list = GetUsers();
-
-        private static List<IUser> GetUsers()
-        {
-            return new List<IUser>
-            {
-                new Customer(){
-                    FirstName = "Pokai", 
-                    LastName="Haung", 
-                    Gender = Gender.Male,
-                    DateOfBirth = new DateTime(1992,8,24),
-                    Email = "pokai@library.com"
-                },
-                new Customer(){
-                    FirstName = "David", 
-                    LastName="Koo", 
-                    Gender = Gender.Male,
-                    DateOfBirth = new DateTime(1995,3,20),
-                    Email = "david@library.com"
-                },
-                new Manager(){
-                    FirstName = "Mimi", 
-                    LastName="Omg", 
-                    Gender = Gender.Female,
-                    DateOfBirth = new DateTime(1987,9,20),
-                    Email = "mimi@library.com"
-                },
-                new Manager(){
-                    FirstName = "Kelly", 
-                    LastName="Lewis", 
-                    Gender = Gender.Female,
-                    DateOfBirth = new DateTime(1970,1,6),
-                    Email = "Kelly@library.com"
-                }
-            };
-        }
-
-        private static UserRepository _instance;
-        private static int _lastID = 0;
-
-        private UserRepository() { }
-
-        public static UserRepository Instance 
-        { 
-            get { return _instance ?? new UserRepository(); }
-        }
-
         public int Add(IUser item)
         {
-            item.UserId = ++_lastID;
-            _list.Add(item);
+            if (UserData.UserList.Exists(u => u.Email == item.Email))
+                throw new ArgumentException("This user's email has already existed.");
+
+            UserData.IncrementLastID();
+            item.UserId = UserData.LastID;
+            UserData.UserList.Add(item);
 
             return item.UserId;
         }
 
+        public IUser FindByEmail(string email)
+        {
+            return UserData.UserList.Find(u => u.Email == email);
+        }
+
         public IEnumerable<IUser> FindByCategory(UserType userType)
         {
-            throw new NotImplementedException();
+            switch (userType)
+            {
+                case UserType.Customer:
+                    return UserData.UserList.Where(c => c is Customer).ToList();
+                case UserType.Manager:
+                    return UserData.UserList.Where(r => r is Manager).ToList();
+                default:
+                    return null;
+            }
         }
 
         public IEnumerable<IUser> FindByName(string name)
         {
-            return _list.Where(u => u.FirstName == name || u.LastName == name);
+            return UserData.UserList.Where(u => u.FirstName == name || u.LastName == name).ToList();
         }
 
         public IEnumerable<IUser> GetAll()
         {
-            return _list;
+            return UserData.UserList.ToList();
         }
 
         public IUser GetByID(int id)
         {
-            return _list.FirstOrDefault(u => u.UserId == id);
+            return UserData.UserList.FirstOrDefault(u => u.UserId == id);
         }
 
         public void RemoveByID(int id)
         {
-            _list.RemoveAll(u => u.UserId == id );
+            UserData.UserList.RemoveAll(u => u.UserId == id );
         }
 
-        public IUser Update(int id, IUser updatedItem)
+        public IUser Update(IUser updatedUser)
         {
-            if (updatedItem == null)
-                throw new ArgumentNullException();
+            if (updatedUser == null)
+                throw new ArgumentException("Updated User is null.");
 
+            var user = GetByID(updatedUser.UserId);
 
-            
-            throw new NotImplementedException();
+            if ( user == null )
+                throw new ArgumentException("Invalid User Id.");
+
+            user = updatedUser;
+
+            return updatedUser;
         }
+
     }
 }

@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace OnlineLibrarySystemLib
 {
-    interface ILibraryRespository<T>
+    public interface ILibraryRespository<T>
     {
-        int Add(T item);
+        int  Add(T item);
 
         void RemoveByID(int id);
 
-        T Update(int id, T updatedItem);
+        T Update(T updatedItem);
 
         T GetByID(int id);
 

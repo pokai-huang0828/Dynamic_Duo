@@ -11,34 +11,43 @@ namespace OnlineLibrarySystemWeb
 {
 
 
-    public partial class _Default
+    public partial class Login
     {
 
         /// <summary>
-        /// ddlSearchType control.
+        /// ItMessage control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlSearchType;
+        protected global::System.Web.UI.WebControls.Literal ItMessage;
 
         /// <summary>
-        /// ddlCategory control.
+        /// email control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlCategory;
+        protected global::System.Web.UI.WebControls.TextBox email;
 
         /// <summary>
-        /// searchButton control.
+        /// password control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button searchButton;
+        protected global::System.Web.UI.WebControls.TextBox password;
+
+        /// <summary>
+        /// btnSubmit control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnSubmit;
     }
 }

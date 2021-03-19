@@ -41,6 +41,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Models\Data\ResourceData.cs" />
+    <Compile Include="Models\Data\UserData.cs" />
     <Compile Include="Models\Enum\ResourceType.cs" />
     <Compile Include="Models\Enum\UserType.cs" />
     <Compile Include="Models\Records\CheckOut.cs" />
