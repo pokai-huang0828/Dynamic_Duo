@@ -14,6 +14,7 @@ namespace OnlineLibrarySystemTesting
         {
 
             UserRepository u = new UserRepository();
+            UserSearch us = new UserSearch();
 
             var allUsers = u.GetAll();
             printList(allUsers);
@@ -24,12 +25,20 @@ namespace OnlineLibrarySystemTesting
             u.RemoveByID(1);
             printList(u.GetAll());
 
-            var c = u.FindByEmail("mimi@email.com");
+            var c = us.FindByEmail("mimi@email.com");
             Console.WriteLine(c.UserId);
 
-            var customerList = u.FindByCategory(UserType.Customer);
+            var customerList = us.FindByCategory(UserType.Customer);
             printList(customerList);
 
+            // Testing Update User
+            var olduser = u.GetByID(2);
+            Console.WriteLine($"oldUser firstName: {olduser.FirstName}");
+            olduser.FirstName = "McLovin";
+            u.Update(olduser);
+            var newuser = u.GetByID(2);
+            Console.WriteLine($"newUser firstName: {newuser.FirstName}");
+           
             // Test Login 
             var login = new LoginService();
             Console.WriteLine( "Sign in ok? {0}",login.LoginUser("mimi@email.com", "123"));
@@ -38,7 +47,7 @@ namespace OnlineLibrarySystemTesting
             var register = new RegisterService();
             register.RegisterUser(new Customer("roger@email.com", "123"));
 
-            var newRegUser = u.FindByEmail("roger@email.com");
+            var newRegUser = us.FindByEmail("roger@email.com");
             Console.WriteLine(newRegUser.Email);
 
             printList(u.GetAll());
@@ -46,9 +55,10 @@ namespace OnlineLibrarySystemTesting
             // Testing Resource Repository
 
             ResourceRepository rpos = new ResourceRepository();
+            ResourceSearch rsearch = new ResourceSearch();
             printList(rpos.GetAll());
 
-            var audioList = rpos.FindByCategory(ResourceType.Audio);
+            var audioList = rsearch.FindByCategory(ResourceType.Audio);
             printList(audioList);
 
 

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace OnlineLibrarySystemLib
 {
-    public class ResourceRepository : ILibraryRespository<IResource>, IBasicSearch<IResource, ResourceType>
+    public class ResourceRepository : ILibraryRespository<IResource>
     {
         public int Add(IResource item)
         {
@@ -43,29 +43,12 @@ namespace OnlineLibrarySystemLib
             if (resource == null)
                 throw new ArgumentException("Invalid Resource Id.");
 
-            resource = updatedResource;
+            var oldResource = ResourceData.ResourceList
+                .Find(r => r.ResourceID == updatedResource.ResourceID);
+
+            oldResource = updatedResource;
 
             return updatedResource;
-        }
-
-        public IEnumerable<IResource> FindByCategory(ResourceType resourceType)
-        {
-            switch (resourceType)
-            {
-                case ResourceType.Reading:
-                    return ResourceData.ResourceList.Where(r => r is IReading).ToList();
-                case ResourceType.Audio:
-                    return ResourceData.ResourceList.Where(r => r is IAudio).ToList();
-                case ResourceType.Video:
-                    return ResourceData.ResourceList.Where(r => r is IVideo).ToList();
-                default:
-                    return null;
-            }
-        }
-
-        public IEnumerable<IResource> FindByName(string name)
-        {
-            return ResourceData.ResourceList.Where(u => u.Title == name).ToList();
         }
 
         public IEnumerable<IResource> GetAll()

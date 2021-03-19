@@ -9,7 +9,7 @@ using OnlineLibrarySystemLib.Models.Data;
 
 namespace OnlineLibrarySystemLib
 {
-    public class UserRepository : ILibraryRespository<IUser>, IBasicSearch<IUser, UserType>
+    public class UserRepository : ILibraryRespository<IUser>
     {
         public int Add(IUser item)
         {
@@ -21,29 +21,6 @@ namespace OnlineLibrarySystemLib
             UserData.UserList.Add(item);
 
             return item.UserId;
-        }
-
-        public IUser FindByEmail(string email)
-        {
-            return UserData.UserList.Find(u => u.Email == email);
-        }
-
-        public IEnumerable<IUser> FindByCategory(UserType userType)
-        {
-            switch (userType)
-            {
-                case UserType.Customer:
-                    return UserData.UserList.Where(c => c is Customer).ToList();
-                case UserType.Manager:
-                    return UserData.UserList.Where(r => r is Manager).ToList();
-                default:
-                    return null;
-            }
-        }
-
-        public IEnumerable<IUser> FindByName(string name)
-        {
-            return UserData.UserList.Where(u => u.FirstName == name || u.LastName == name).ToList();
         }
 
         public IEnumerable<IUser> GetAll()
@@ -71,7 +48,10 @@ namespace OnlineLibrarySystemLib
             if ( user == null )
                 throw new ArgumentException("Invalid User Id.");
 
-            user = updatedUser;
+            var oldUser = UserData.UserList
+                .Find(u => u.UserId == updatedUser.UserId);
+
+            oldUser = updatedUser;
 
             return updatedUser;
         }

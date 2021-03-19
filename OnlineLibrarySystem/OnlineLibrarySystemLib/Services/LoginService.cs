@@ -8,18 +8,18 @@ namespace OnlineLibrarySystemLib.Services
 {
     public class LoginService
     {
-        private readonly UserRepository userRepository;
+        private readonly UserSearch userSearch;
 
         public LoginService()
         {
-            userRepository = new UserRepository();
+            userSearch = new UserSearch();
         }
 
         public bool LoginUser(string email, string password)
         {
             try
             {
-                var user = userRepository.FindByEmail(email);
+                var user = userSearch.FindByEmail(email);
 
                 if (user != null &&
                     user.Email == email &&
