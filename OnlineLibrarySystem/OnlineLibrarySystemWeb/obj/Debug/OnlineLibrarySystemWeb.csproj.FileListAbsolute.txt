@@ -60,6 +60,7 @@ C:\Users\eric1\OneDrive\desktop\Dynamic_Duo Project\OnlineLibrarySystem\OnlineLi
 C:\Users\eric1\OneDrive\desktop\Dynamic_Duo Project\OnlineLibrarySystem\OnlineLibrarySystemWeb\bin\Microsoft.ScriptManager.WebForms.dll
 C:\Users\eric1\OneDrive\desktop\Dynamic_Duo Project\OnlineLibrarySystem\OnlineLibrarySystemWeb\bin\Microsoft.Web.Infrastructure.dll
 C:\Users\eric1\OneDrive\desktop\Dynamic_Duo Project\OnlineLibrarySystem\OnlineLibrarySystemWeb\bin\Newtonsoft.Json.dll
+C:\Users\eric1\OneDrive\desktop\Dynamic_Duo Project\OnlineLibrarySystem\OnlineLibrarySystemWeb\bin\OnlineLibrarySystemLib.dll
 C:\Users\eric1\OneDrive\desktop\Dynamic_Duo Project\OnlineLibrarySystem\OnlineLibrarySystemWeb\bin\System.Web.Helpers.dll
 C:\Users\eric1\OneDrive\desktop\Dynamic_Duo Project\OnlineLibrarySystem\OnlineLibrarySystemWeb\bin\System.Web.Mvc.dll
 C:\Users\eric1\OneDrive\desktop\Dynamic_Duo Project\OnlineLibrarySystem\OnlineLibrarySystemWeb\bin\System.Web.Optimization.dll
@@ -68,6 +69,7 @@ C:\Users\eric1\OneDrive\desktop\Dynamic_Duo Project\OnlineLibrarySystem\OnlineLi
 C:\Users\eric1\OneDrive\desktop\Dynamic_Duo Project\OnlineLibrarySystem\OnlineLibrarySystemWeb\bin\System.Web.WebPages.dll
 C:\Users\eric1\OneDrive\desktop\Dynamic_Duo Project\OnlineLibrarySystem\OnlineLibrarySystemWeb\bin\System.Web.WebPages.Razor.dll
 C:\Users\eric1\OneDrive\desktop\Dynamic_Duo Project\OnlineLibrarySystem\OnlineLibrarySystemWeb\bin\WebGrease.dll
+C:\Users\eric1\OneDrive\desktop\Dynamic_Duo Project\OnlineLibrarySystem\OnlineLibrarySystemWeb\bin\OnlineLibrarySystemLib.pdb
 C:\Users\eric1\OneDrive\desktop\Dynamic_Duo Project\OnlineLibrarySystem\OnlineLibrarySystemWeb\bin\System.Web.Helpers.xml
 C:\Users\eric1\OneDrive\desktop\Dynamic_Duo Project\OnlineLibrarySystem\OnlineLibrarySystemWeb\bin\System.Web.Mvc.xml
 C:\Users\eric1\OneDrive\desktop\Dynamic_Duo Project\OnlineLibrarySystem\OnlineLibrarySystemWeb\bin\System.Web.Razor.xml
@@ -84,5 +86,3 @@ C:\Users\eric1\OneDrive\desktop\Dynamic_Duo Project\OnlineLibrarySystem\OnlineLi
 C:\Users\eric1\OneDrive\desktop\Dynamic_Duo Project\OnlineLibrarySystem\OnlineLibrarySystemWeb\obj\Debug\OnlineLibrarySystemWeb.csproj.CopyComplete
 C:\Users\eric1\OneDrive\desktop\Dynamic_Duo Project\OnlineLibrarySystem\OnlineLibrarySystemWeb\obj\Debug\OnlineLibrarySystemWeb.dll
 C:\Users\eric1\OneDrive\desktop\Dynamic_Duo Project\OnlineLibrarySystem\OnlineLibrarySystemWeb\obj\Debug\OnlineLibrarySystemWeb.pdb
-C:\Users\eric1\OneDrive\desktop\Dynamic_Duo Project\OnlineLibrarySystem\OnlineLibrarySystemWeb\bin\OnlineLibrarySystemLib.dll
-C:\Users\eric1\OneDrive\desktop\Dynamic_Duo Project\OnlineLibrarySystem\OnlineLibrarySystemWeb\bin\OnlineLibrarySystemLib.pdb

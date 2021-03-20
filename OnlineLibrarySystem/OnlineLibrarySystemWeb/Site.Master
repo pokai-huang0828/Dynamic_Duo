@@ -6,6 +6,7 @@
 <head runat="server">
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <title><%: Page.Title %> - Online Library System</title>
 
     <asp:PlaceHolder runat="server">
@@ -13,6 +14,7 @@
     </asp:PlaceHolder>
 
     <webopt:bundlereference runat="server" path="~/Content/css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.0/font/bootstrap-icons.css">
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
 
 </head>
@@ -38,34 +40,53 @@
             </Scripts>
         </asp:ScriptManager>
 
-        <div class="navbar navbar-inverse navbar-fixed-top">
-            <div class="container">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" runat="server" href="~/">Online Library System</a>
-                </div>
-                <div class="navbar-collapse collapse">
-                    <ul class="nav navbar-nav">
-                        <li><a runat="server" href="~/">Home</a></li>
-                        <li><a runat="server" href="~/About">About</a></li>
-                        <li><a runat="server" href="~/Contact">Contact</a></li>
+        <nav class="navbar navbar-expand-md navbar-light">
+            <div class="container-fluid">
+
+                <a class="navbar-brand" runat="server" href="~/">
+                    <i class="bi bi-book"></i> 
+                     Online Library System
+                </a>
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <%if (Session["Email"] != null){%>
+
+                <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mr-1 mb-lg-0">
+                        <% if (Session["Role"] == "Customer"){ %>
+                        <li class="nav-item">
+                            <a class="nav-link" runat="server" href="~/About"><i class="bi bi-heart"> Wait List</i></a>
+                        </li>                        
+                        <li class="nav-item">
+                            <a class="nav-link" runat="server" href="~/About"><i class="bi bi-bag-check"> Check Out</i></a>
+                        </li>
+                        <%} %>
                     </ul>
+
+                    <asp:Button ID="LogoutBtn" CssClass="btn btn-danger mb-2" runat="server" Text="Logout" OnClick="LogoutBtn_Click"></asp:Button>
+                    
                 </div>
+                <%}%>
             </div>
-        </div>
+        </nav>
+
         <div class="container body-content">
             <asp:ContentPlaceHolder ID="MainContent" runat="server">
             </asp:ContentPlaceHolder>
             <hr />
             <footer>
-                <p>&copy; <%: DateTime.Now.Year %> - Online Library System</p>
+                <p><small>&copy; <%: DateTime.Now.Year %> - Online Library System 
+                    by <i>The Dynamic Duo</i></small></p>
             </footer>
         </div>
 
     </form>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+
+
 </body>
 </html>

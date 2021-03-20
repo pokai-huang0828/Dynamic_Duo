@@ -58,7 +58,7 @@ namespace OnlineLibrarySystemLib.Models.Data
                     Gender = Gender.Female,
                     DateOfBirth = new DateTime(1987,9,20)
                 },
-                new Manager( "Kelly@library.com", "123"){
+                new Manager( "kelly@library.com", "123"){
                     UserId = 4,
                     FirstName = "Kelly",
                     LastName="Lewis",

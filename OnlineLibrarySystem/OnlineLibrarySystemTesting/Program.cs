@@ -62,16 +62,13 @@ namespace OnlineLibrarySystemTesting
             printList(audioList);
 
 
-
-
-
             Console.ReadLine();
         }
 
         public static void printList(IEnumerable<IResource> list)
         {
             foreach (var i in list)
-                Console.WriteLine(i.Title);
+                Console.WriteLine(i.ResourceID+ " "+ i.Title);
 
             Console.WriteLine("");
         }
