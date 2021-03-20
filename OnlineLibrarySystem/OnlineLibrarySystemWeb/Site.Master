@@ -54,14 +54,27 @@
 
                 <%if (Session["Email"] != null){%>
 
-                <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+                <div class="collapse navbar-collapse justify-content-end" 
+                    id="navbarSupportedContent">
+
                     <ul class="navbar-nav me-auto mb-2 mr-1 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link" runat="server" href="~/">
+                                <i class="bi bi-person-circle"></i> 
+                                <span><%= Session["email"] %></span>
+                            </a>
+                        </li>   
                         <% if (Session["Role"] == "Customer"){ %>
                         <li class="nav-item">
-                            <a class="nav-link" runat="server" href="~/About"><i class="bi bi-heart"> Wait List</i></a>
+                            <a class="nav-link" runat="server" href="~/WaitingList">
+                                <i class="bi bi-heart"> Wait List</i> 
+                                <span class="badge bg-primary">0</span></a>
                         </li>                        
                         <li class="nav-item">
-                            <a class="nav-link" runat="server" href="~/About"><i class="bi bi-bag-check"> Check Out</i></a>
+                            <a class="nav-link" runat="server" href="~/CheckOut">
+                                <i class="bi bi-bag-check"> Check Out</i> 
+                                <span class="badge bg-success">0</span>
+                            </a>
                         </li>
                         <%} %>
                     </ul>
@@ -85,8 +98,7 @@
 
     </form>
 
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
-
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
 
 </body>
 </html>

@@ -7,14 +7,11 @@ using System.Web.UI.WebControls;
 
 namespace OnlineLibrarySystemWeb
 {
-    public partial class About : Page
+    public partial class CheckOut : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+
         }
-
-
-
-
     }
 }
