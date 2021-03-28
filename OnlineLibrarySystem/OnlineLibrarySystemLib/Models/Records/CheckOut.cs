@@ -8,9 +8,15 @@ namespace OnlineLibrarySystemLib
 {
     public class CheckOut
     {
-        public CheckOut()
+        public CheckOut(
+            int userID, 
+            List<int> resourceIDs,
+            DateTime checkOutDate
+            )
         {
-            ResourceIDs = new List<int>();
+            UserID = userID;
+            ResourceIDs = resourceIDs;
+            DueDate = checkOutDate.AddDays(14);
         }
         
         public int ID { get; set; }
@@ -18,6 +24,12 @@ namespace OnlineLibrarySystemLib
         public List<int> ResourceIDs { get; set; }
         public DateTime CheckOutDate { get; set; }
         public DateTime DueDate { get; set; }
+
+        public override string ToString()
+        {
+            return "CheckOutID " + ID.ToString() + 
+                " UserID" + UserID + " ResourceId " + ResourceIDs.ToString();
+        }
 
     }
 }

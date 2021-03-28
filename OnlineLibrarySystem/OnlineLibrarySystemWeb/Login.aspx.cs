@@ -27,6 +27,7 @@ namespace OnlineLibrarySystemWeb
                 var userarch = new UserSearch();
                 var user = userarch.FindByEmail(email.Text);
                 Session["FirstName"] = user.FirstName;
+                Session["UserId"] = user.UserId;
                 Session["Email"] = user.Email;
                 Session["Role"] = user is Customer ? "Customer" : "Manager";
 

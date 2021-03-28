@@ -1,6 +1,6 @@
 ﻿<%@ Page Title="Waiting List" Language="C#" MasterPageFile="~/Site.Master" 
     AutoEventWireup="true" CodeBehind="WaitingList.aspx.cs" 
-    Inherits="OnlineLibrarySystemWeb.WaitingList" %>
+    Inherits="OnlineLibrarySystemWeb.WaitingList" EnableEventValidation="False" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 
@@ -8,27 +8,35 @@
 
         <h2><%: Title %></h2>
 
-        <table class="table">
-            <thead>
-                <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">First</th>
-                    <th scope="col">Last</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <th scope="row">1</th>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                </tr>
-                <tr>
-                    <th scope="row">2</th>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                </tr>
-            </tbody>
-        </table>
+            <asp:Repeater ID="wishListRepeater" runat="server">
+                <HeaderTemplate>
+                    <table class="table table-info table-striped table-hover" border="0">
+                        <tr>
+                            <td><b>Resource ID</b></td>
+                            <td><b>Title</b></td>
+                            <td><b>Delete</b></td>
+                        </tr>
+                </HeaderTemplate>
+                <ItemTemplate>
+                    <tr>
+                        <td><%# DataBinder.Eval(Container.DataItem, "resourceID") %> </td>
+                        <td><%# DataBinder.Eval(Container.DataItem, "title") %> </td>
+                        <td>
+                            <asp:Button 
+                                runat="server" 
+                                CssClass="btn btn-danger" 
+                                CommandName=<%# DataBinder.Eval(Container.DataItem, "resourceID") %>
+                                CausesValidation="False"
+                                OnClick="DeleteBtn_Click"
+                                Text="Delete" />
+                        </td>
+                    </tr>
+                </ItemTemplate>
+                <FooterTemplate>
+                    </table>
+                </FooterTemplate>
+            </asp:Repeater>
+        </div>
 
     </div>
 

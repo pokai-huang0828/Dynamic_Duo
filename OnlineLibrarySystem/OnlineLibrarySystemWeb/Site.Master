@@ -66,14 +66,23 @@
                         </li>   
                         <% if (Session["Role"] == "Customer"){ %>
                         <li class="nav-item">
+                            <a class="nav-link" runat="server" href="~/history">
+                                <i class="bi bi-clock-history"> My History</i> 
+                            </a>
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link" runat="server" href="~/WaitingList">
                                 <i class="bi bi-heart"> Wait List</i> 
-                                <span class="badge bg-primary">0</span></a>
+                                <span class="badge bg-primary">
+                                     <%= waitListItemRepository.GetAll().Where(w => w.UserID == (int)Session["UserId"]).ToList().Count %>
+                                </span></a>
                         </li>                        
                         <li class="nav-item">
-                            <a class="nav-link" runat="server" href="~/CheckOut">
-                                <i class="bi bi-bag-check"> Check Out</i> 
-                                <span class="badge bg-success">0</span>
+                            <a class="nav-link" runat="server" href="~/CheckOutPage">
+                                <i class="bi bi-bag-check"> Check Out Bag</i> 
+                                <span class="badge bg-success">
+                                    <%= ((List<int>)Session["resourceIds"]).Count() %>
+                                </span>
                             </a>
                         </li>
                         <%} %>

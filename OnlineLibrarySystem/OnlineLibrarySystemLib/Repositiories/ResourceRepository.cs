@@ -33,6 +33,22 @@ namespace OnlineLibrarySystemLib
             ResourceData.ResourceList.RemoveAll(r => r.ResourceID == id);
         }
 
+        public void DecrementResourceCopies(int id)
+        {
+            var resource = GetByID(id);
+
+            if(resource.CopyInStock > 0)
+                resource.CopyInStock--;
+        }
+        
+        public void IncrementResourceCopies(int id)
+        {
+            var resource = GetByID(id);
+
+            if(resource.TotalNumberOfCopies != resource.CopyInStock)
+                resource.CopyInStock++;
+        }
+
         public IResource Update(IResource updatedResource)
         {
             if (updatedResource == null)
@@ -55,5 +71,16 @@ namespace OnlineLibrarySystemLib
         {
             return ResourceData.ResourceList.ToList();
         }
+
+        public int GetResourceCopiesByID(int resourceId)
+        {
+            var resource = GetByID(resourceId);
+
+            if (resource == null)
+                throw new ArgumentException("No resource with this id");
+
+            return resource.CopyInStock;
+        }
+
     }
 }

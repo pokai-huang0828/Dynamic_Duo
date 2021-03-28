@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Login Page" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="OnlineLibrarySystemWeb._Default" %>
+﻿<%@ Page Title="Login Page" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="OnlineLibrarySystemWeb._Default" EnableEventValidation="False" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 
@@ -36,8 +36,7 @@
             </div>
         </div>
 
-        <% if (Session["Role"] == "Manager")
-            { %>
+        <% if (Session["Role"] == "Manager") { %>
         <h6><i class="bi bi-people-fill"></i>Search Library Users</h6>
         <div class="form-inline my-4">
 
@@ -77,6 +76,8 @@
                             <td><b>Resource ID</b></td>
                             <td><b>Title</b></td>
                             <td><b>Category</b></td>
+                            <td><b>Copies In Stock</b></td>
+                            <td><b>Add to Cart</b></td>
                         </tr>
                 </HeaderTemplate>
                 <ItemTemplate>
@@ -84,6 +85,30 @@
                         <td><%# DataBinder.Eval(Container.DataItem, "ResourceID") %> </td>
                         <td><%# DataBinder.Eval(Container.DataItem, "Title") %> </td>
                         <td><%# Container.DataItem.GetType().GetInterfaces()[0].Name.Remove(0,1) %> </td>
+                        <td><%# DataBinder.Eval(Container.DataItem, "CopyInStock") %> </td>
+                        <td id="<%# DataBinder.Eval(Container.DataItem, "ResourceID") %>">
+
+                            <asp:Button 
+                            runat="server"
+                            Text="Add to Cart"
+                            CommandName=<%# DataBinder.Eval(Container.DataItem, "ResourceID") %>
+                            CssClass="btn btn-success" 
+                            OnClick="AddToCartBtn_Click" 
+                            CausesValidation="False" 
+                            Visible =<%# (int)DataBinder.Eval(Container.DataItem, "CopyInStock") != 0 %>
+                            />
+
+                            <asp:Button 
+                            runat="server"
+                            Text="Add to Wist List"
+                            CommandName=<%# DataBinder.Eval(Container.DataItem, "ResourceID") %>
+                            CssClass="btn btn-primary" 
+                            OnClick="AddToWistListBtn_Click" 
+                            CausesValidation="False" 
+                            Visible =<%# (int)DataBinder.Eval(Container.DataItem, "CopyInStock") == 0 %>
+                            />
+                        
+                        </td>
                     </tr>
                 </ItemTemplate>
                 <FooterTemplate>

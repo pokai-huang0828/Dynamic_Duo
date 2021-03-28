@@ -11,5 +11,11 @@ namespace OnlineLibrarySystemLib
         public int ID { get; set; }
         public int UserID { get; set; }
         public int ResourceID { get; set; }
+
+        public WishListItem(int userId, int resourceId)
+        {
+            UserID = userId;
+            ResourceID = resourceId;
+        }
     }
 }

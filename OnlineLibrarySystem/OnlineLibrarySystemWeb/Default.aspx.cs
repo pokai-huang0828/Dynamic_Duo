@@ -2,9 +2,11 @@
 using OnlineLibrarySystemLib.Services;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
+using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
 
 namespace OnlineLibrarySystemWeb
@@ -27,6 +29,34 @@ namespace OnlineLibrarySystemWeb
 
             resourceRepeater.DataSource = resourceRepository.GetAll();
             resourceRepeater.DataBind();
+        }
+
+        protected void AddToWistListBtn_Click(object sender, EventArgs e)
+        {
+            var addToCartBtn = sender as Button;
+            var resourceId = Int32.Parse(addToCartBtn.CommandName);
+            var userId = (int)Session["UserId"];
+
+            var waitListItemRepository = new WaitListItemRepository();
+            waitListItemRepository.Add(new WishListItem(userId, resourceId));
+        }
+
+        protected void AddToCartBtn_Click(object sender, EventArgs e)
+        {
+            var addToCartBtn = sender as Button;
+            var resourceId = Int32.Parse(addToCartBtn.CommandName);
+
+            var resourceIds = Session["resourceIds"];
+
+            if (Session["resourceIds"] == null)
+            {
+                Session["resourceIds"] = new List<int> { resourceId };
+            }
+            else
+            {
+                ((List<int>)Session["resourceIds"]).Add(resourceId);
+            }
+
         }
 
         protected void searchButton_Click(object sender, EventArgs e)
@@ -70,6 +100,7 @@ namespace OnlineLibrarySystemWeb
                     break;
             }
 
+            searchText.Text = "";
             userRepeater.Visible = false;
             resourceRepeater.DataSource = results;
             resourceRepeater.DataBind();
@@ -113,6 +144,8 @@ namespace OnlineLibrarySystemWeb
                     results = results.Where(m => m is Manager).ToList();
                     break;
             }
+
+            userSearchText.Text = "";
 
             resourceRepeater.Visible = false;
 

@@ -26,7 +26,7 @@ namespace OnlineLibrarySystemLib.Services
 
         public IEnumerable<IResource> FindByName(string name)
         {
-            return ResourceData.ResourceList.Where(u => u.Title == name).ToList();
+            return ResourceData.ResourceList.Where(u => u.Title.ToLower().Contains(name.ToLower())).ToList();
         }
     }
 }

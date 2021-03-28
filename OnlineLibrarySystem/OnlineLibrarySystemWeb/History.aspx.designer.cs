@@ -11,16 +11,16 @@ namespace OnlineLibrarySystemWeb
 {
 
 
-    public partial class WaitingList
+    public partial class History
     {
 
         /// <summary>
-        /// wishListRepeater control.
+        /// historyRepeater control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater wishListRepeater;
+        protected global::System.Web.UI.WebControls.Repeater historyRepeater;
     }
 }
