@@ -67,6 +67,7 @@
     <Compile Include="Models\Users\IUser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositiories\CheckOutRepository.cs" />
+    <Compile Include="Repositiories\DisplayCheckOutItem.cs" />
     <Compile Include="Repositiories\ILibraryRepository.cs" />
     <Compile Include="Repositiories\ResourceRepository.cs" />
     <Compile Include="Repositiories\UserRepository.cs" />
@@ -76,9 +77,8 @@
     <Compile Include="Services\RegisterService.cs" />
     <Compile Include="Services\ResourceSearch.cs" />
     <Compile Include="Services\UserSearch.cs" />
+    <Compile Include="UnitsOfWork\CheckOutUtils.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="UnitsOfWork\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

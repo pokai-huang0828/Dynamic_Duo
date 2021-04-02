@@ -1,51 +1,17 @@
 ﻿using OnlineLibrarySystemLib.Models.Data;
+using OnlineLibrarySystemLib.UnitsOfWork;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace OnlineLibrarySystemLib
 {
     public class CheckOutRepository : ILibraryRespository<CheckOut>
     {
-        
         public int Add(CheckOut item)
         {
-            var checkOutItemIds = item.ResourceIDs;
-            var resourceRepository = new ResourceRepository();
-
-            var resourceCount = new Dictionary<int, int>();
-
-            checkOutItemIds.ForEach( id => {
-
-                var resource = resourceRepository.GetByID(id);
-
-                if (resource == null)
-                    new ArgumentException($"No resource with id: {id}.");
-
-                if (resource.CopyInStock == 0)
-                    throw new ArgumentException($"{resource.Title} is out of stock. Please try again.");
-
-                resourceCount[id] = resourceCount.ContainsKey(id) ? ++resourceCount[id] : 1;
-          
-            });
-
-            var OutOfStockItem = resourceCount.FirstOrDefault(pair =>
-            {
-                var resource = resourceRepository.GetByID(pair.Key);
-                return resource.CopyInStock < pair.Value;
-            });
-
-            if (!OutOfStockItem.Equals(null) && OutOfStockItem.Value != 0)
-            {
-                var resource = resourceRepository.GetByID(OutOfStockItem.Key);
-                throw new ArgumentException($"{resource.Title} is not available. Please try again.");
-            }
-
-            checkOutItemIds.ForEach(id =>
-            resourceRepository.DecrementResourceCopies(id));
-            
+            CheckOutUtils.ProcessCheckOut(item); // throws exceptions if the check out is invalid
             CheckOutData.IncrementLastID();
             item.ID = CheckOutData.LastID;
             CheckOutData.CheckOutList.Add(item);
@@ -65,22 +31,11 @@ namespace OnlineLibrarySystemLib
 
         public void RemoveByID(int id)
         {
-            // Increment Resource Copies
             var checkout = GetByID(id);
-            
             if (checkout == null)
                 return;
 
-            var resourceRepository = new ResourceRepository();
-
-            checkout.ResourceIDs.ForEach(r_id =>
-           {
-               var resource = resourceRepository.GetByID(r_id);
-
-               if (resource != null)
-                   resourceRepository.IncrementResourceCopies(resource.ResourceID);
-           });
-            
+            CheckOutUtils.RemoveCheckOut(checkout);
             CheckOutData.CheckOutList.RemoveAll(c => c.ID == id);
         }
 
@@ -94,58 +49,15 @@ namespace OnlineLibrarySystemLib
             if (item == null)
                 throw new ArgumentException("Invalid Checkout ID.");
 
-            item = updatedItem;
+            item = updatedItem; // replace the old item
 
             return item;
         }
 
-        public List<DisplayCheckOutItem>  GetCheckOutItemsByID(int userId)
+        public List<DisplayCheckOutItem> GetCheckOutItemsByID(int userId)
         {
-            var resourceRepository = new ResourceRepository();
-            var checkOutItems  = new List<DisplayCheckOutItem>();
-
-            GetAll()
-                .Where(c => c.UserID == userId)
-                .ToList()
-                .ForEach(c =>
-                {
-                    foreach (var resourceId in c.ResourceIDs)
-                    {
-                        var resource = resourceRepository.GetByID(resourceId);
-
-                        var displayCheckOutItem = new DisplayCheckOutItem(
-                            resource.ResourceID, resource.Title,
-                            c.CheckOutDate, c.DueDate);
-
-                        checkOutItems.Add(displayCheckOutItem);
-                    }
-                });
-
-            checkOutItems.Sort((c, d) => d.DueDate.CompareTo(c.DueDate));
-
-            return checkOutItems;
+            return CheckOutUtils.ProcessCheckOutItemsByID(userId);
         }
 
-
-    }
-
-    public class DisplayCheckOutItem
-    {
-        public DisplayCheckOutItem(
-            int resourceId,
-            string title,
-            DateTime checkOutDateTime,
-            DateTime dueDateTime)
-        {
-            ResourceId = resourceId;
-            Title = title;
-            CheckOutDate = checkOutDateTime;
-            DueDate = dueDateTime;
-        }
-
-        public int ResourceId { get; }
-        public string Title { get; }
-        public DateTime CheckOutDate { get; }
-        public DateTime DueDate { get; }
     }
 }

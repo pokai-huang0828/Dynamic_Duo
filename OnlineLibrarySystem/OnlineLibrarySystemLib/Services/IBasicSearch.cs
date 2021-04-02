@@ -11,5 +11,8 @@ namespace OnlineLibrarySystemLib
         IEnumerable<T> FindByName(string name);
 
         IEnumerable<T> FindByCategory(ItemType itemType);
+
+        IEnumerable<T> SearchRespository(
+            string keyword, string category, string searchType);
     }
 }
