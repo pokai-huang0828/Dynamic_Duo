@@ -7,7 +7,7 @@
         <h1 class="my-3">Welcome <%=Session["FirstName"]%></h1>
         <hr />
 
-        <h6><i class="bi bi-wallet"></i>Search Library Resources</h6>
+        <h6><i class="bi bi-wallet"></i> Search Library Resources</h6>
         <div class="form-inline my-4">
 
             <div class="form-group inline mr-2">
@@ -38,7 +38,7 @@
         </div>
 
         <% if (Session["Role"] == "Manager") { %>
-        <h6><i class="bi bi-people-fill"></i>Search Library Users</h6>
+        <h6><i class="bi bi-people-fill"></i> Search Library Users</h6>
         <div class="form-inline my-4">
 
             <div class="form-group inline mr-2">

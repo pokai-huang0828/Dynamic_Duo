@@ -7,6 +7,8 @@
     <div class="jumbotron my-2 py-3 px-3">
 
         <h2><%: Title %></h2>
+                    
+        <div class="row d-flex text-center" style="color:red; font-weight:bold;"><%= ErrorText %></div>
 
  <asp:Repeater ID="DetailPropertyRepeater" runat="server">
                 <HeaderTemplate>
