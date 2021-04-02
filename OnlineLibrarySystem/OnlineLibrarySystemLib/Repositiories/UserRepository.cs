@@ -56,5 +56,23 @@ namespace OnlineLibrarySystemLib
             return updatedUser;
         }
 
+        public IUser GetUserByEmail(string email)
+        {
+            return UserData.UserList.Find(u => u.Email == email);
+        }
+
+        public IEnumerable<IUser> GetUsersByCategory(UserType userType)
+        {
+            switch (userType)
+            {
+                case UserType.Customer:
+                    return UserData.UserList.Where(c => c is Customer).ToList();
+                case UserType.Manager:
+                    return UserData.UserList.Where(r => r is Manager).ToList();
+                default:
+                    return null;
+            }
+        }
+
     }
 }

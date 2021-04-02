@@ -37,8 +37,8 @@ namespace OnlineLibrarySystemLib.Models.Data
         {
             return new List<IResource>
             {
-                new Book ("Harry Potter 1", 6){ ResourceID = 1 },
-                new Book ("Harry Potter 6", 0){ ResourceID = 2 },
+                new Book ("Harry Potter 1", 6){ ResourceID = 1, Author="JK Rowling" },
+                new Book ("Harry Potter 6", 0){ ResourceID = 2, Author="JK Rowling" },
                 new Book ("Lord of the Rings", 6){ ResourceID = 3 },
                 new Magazine("Glamour", 4){ ResourceID = 4 },
                 new Magazine("QC", 4){ ResourceID = 5 },

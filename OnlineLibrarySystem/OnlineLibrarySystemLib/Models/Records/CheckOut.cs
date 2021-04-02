@@ -11,11 +11,11 @@ namespace OnlineLibrarySystemLib
         public CheckOut(
             int userID, 
             List<int> resourceIDs,
-            DateTime checkOutDate
-            )
+            DateTime checkOutDate)
         {
             UserID = userID;
             ResourceIDs = resourceIDs;
+            CheckOutDate = checkOutDate;
             DueDate = checkOutDate.AddDays(14);
         }
         

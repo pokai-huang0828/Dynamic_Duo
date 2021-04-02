@@ -82,5 +82,26 @@ namespace OnlineLibrarySystemLib
             return resource.CopyInStock;
         }
 
+        public IEnumerable<IResource> GetResourceByResourceType(ResourceType resourceType)
+        {
+            switch (resourceType)
+            {
+                case ResourceType.Reading:
+                    return ResourceData.ResourceList.Where(r => r is IReading).ToList();
+                case ResourceType.Audio:
+                    return ResourceData.ResourceList.Where(r => r is IAudio).ToList();
+                case ResourceType.Video:
+                    return ResourceData.ResourceList.Where(r => r is IVideo).ToList();
+                default:
+                    return null;
+            }
+        }
+
+        public IEnumerable<IResource> GetResourceByName(string name)
+        {
+            return ResourceData.ResourceList
+                .Where(u => u.Title.ToLower().Contains(name.ToLower())).ToList();
+        }
+
     }
 }

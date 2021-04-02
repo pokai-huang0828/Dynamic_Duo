@@ -63,16 +63,28 @@ namespace OnlineLibrarySystemTesting
 
             // Testing Checkout Repository
 
-            CheckOutRepository cpos = new CheckOutRepository();
-            ResourceRepository rpos = new ResourceRepository();
-            cpos.Add(new CheckOut(1, new List<int> { 1 }, new DateTime(2021, 2, 17)));
-            cpos.RemoveByID(4);
-            cpos.RemoveByID(4);
-         
+            /*            CheckOutRepository cpos = new CheckOutRepository();
+                        ResourceRepository rpos = new ResourceRepository();
+                        cpos.Add(new CheckOut(1, new List<int> { 1 }, new DateTime(2021, 2, 17)));
+                        cpos.RemoveByID(4);
+                        cpos.RemoveByID(4);
 
-            printList(cpos.GetAll());
-            rpos.GetAll().ToList().ForEach(r => Console.WriteLine(r.ResourceID + " " + r.CopyInStock));
-            
+
+                        printList(cpos.GetAll());
+                        rpos.GetAll().ToList().ForEach(r => Console.WriteLine(r.ResourceID + " " + r.CopyInStock));*/
+
+            // Testing for Displaying Item Details
+            ResourceRepository rpos = new ResourceRepository();
+            var items = rpos.GetAll();
+
+            foreach (var item in items)
+            {
+                foreach (var property in item.GetType().GetProperties())
+                {
+                    Console.WriteLine(property.Name + " = " + property.GetValue(item)?? "null");
+                }
+            }
+
 
 
             Console.ReadLine();

@@ -9,6 +9,7 @@ namespace OnlineLibrarySystemLib
 {
     public class CheckOutRepository : ILibraryRespository<CheckOut>
     {
+        
         public int Add(CheckOut item)
         {
             var checkOutItemIds = item.ResourceIDs;
@@ -97,5 +98,54 @@ namespace OnlineLibrarySystemLib
 
             return item;
         }
+
+        public List<DisplayCheckOutItem>  GetCheckOutItemsByID(int userId)
+        {
+            var resourceRepository = new ResourceRepository();
+            var checkOutItems  = new List<DisplayCheckOutItem>();
+
+            GetAll()
+                .Where(c => c.UserID == userId)
+                .ToList()
+                .ForEach(c =>
+                {
+                    foreach (var resourceId in c.ResourceIDs)
+                    {
+                        var resource = resourceRepository.GetByID(resourceId);
+
+                        var displayCheckOutItem = new DisplayCheckOutItem(
+                            resource.ResourceID, resource.Title,
+                            c.CheckOutDate, c.DueDate);
+
+                        checkOutItems.Add(displayCheckOutItem);
+                    }
+                });
+
+            checkOutItems.Sort((c, d) => d.DueDate.CompareTo(c.DueDate));
+
+            return checkOutItems;
+        }
+
+
+    }
+
+    public class DisplayCheckOutItem
+    {
+        public DisplayCheckOutItem(
+            int resourceId,
+            string title,
+            DateTime checkOutDateTime,
+            DateTime dueDateTime)
+        {
+            ResourceId = resourceId;
+            Title = title;
+            CheckOutDate = checkOutDateTime;
+            DueDate = dueDateTime;
+        }
+
+        public int ResourceId { get; }
+        public string Title { get; }
+        public DateTime CheckOutDate { get; }
+        public DateTime DueDate { get; }
     }
 }

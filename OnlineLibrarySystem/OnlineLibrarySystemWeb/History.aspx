@@ -8,12 +8,14 @@
 
         <h2><%: Title %></h2>
 
+        <div style="overflow-y: hidden;">
         <asp:Repeater ID="historyRepeater" runat="server">
             <HeaderTemplate>
                 <table class="table table-info table-striped table-hover" border="0">
                     <tr>
                         <td><b>Resource ID</b></td>
                         <td><b>Title</b></td>
+                        <td><b>Check Out Date</b></td>
                         <td><b>Due Date</b></td>
                     </tr>
             </HeaderTemplate>
@@ -21,6 +23,7 @@
                 <tr>
                     <td><%# DataBinder.Eval(Container.DataItem, "resourceID") %> </td>
                     <td><%# DataBinder.Eval(Container.DataItem, "title") %> </td>
+                    <td><%# ((DateTime)DataBinder.Eval(Container.DataItem, "CheckOutDate")).ToShortDateString() %> </td>
                     <td><%# ((DateTime)DataBinder.Eval(Container.DataItem, "dueDate")).ToShortDateString() %> </td>
                 </tr>
             </ItemTemplate>
@@ -29,6 +32,7 @@
             </FooterTemplate>
         </asp:Repeater>
 
+    </div>
     </div>
 
 </asp:Content>

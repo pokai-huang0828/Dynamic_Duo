@@ -17,8 +17,9 @@
             <div class="form-group inline mr-2">
                 <asp:DropDownList ID="ddlSearchType" CssClass="form-control" runat="server">
                     <asp:ListItem Text="Search by" Value="" />
-                    <asp:ListItem Text="Name" Value="name" />
-                    <asp:ListItem Text="Resource ID" Value="resourceId" />
+                    <asp:ListItem Text="Resource Name" Value="name" />
+                    <asp:ListItem Text="Resource ID" Value="resourceId" /> 
+                    <asp:ListItem Text="Author" Value="author" />
                 </asp:DropDownList>
             </div>
 
@@ -74,23 +75,28 @@
                     <table class="table table-info table-striped table-hover" border="0" style="overflow: auto;">
                         <tr>
                             <td><b>Resource ID</b></td>
-                            <td><b>Title</b></td>
+                            <td><b>Resource Name</b></td>
                             <td><b>Category</b></td>
                             <td><b>Copies In Stock</b></td>
-                            <td><b>Add to Cart</b></td>
+                            <% if (Session["Role"] != "Manager") { %>
+                            <td><b>Add to Bag</b></td>
+                            <% } %>
                         </tr>
                 </HeaderTemplate>
                 <ItemTemplate>
+                    
                     <tr>
                         <td><%# DataBinder.Eval(Container.DataItem, "ResourceID") %> </td>
-                        <td><%# DataBinder.Eval(Container.DataItem, "Title") %> </td>
-                        <td><%# Container.DataItem.GetType().GetInterfaces()[0].Name.Remove(0,1) %> </td>
+                        <td><a href="details?resourceId=<%# DataBinder.Eval(Container.DataItem, "ResourceID") %>"><%# DataBinder.Eval(Container.DataItem, "Title") %></a></td>
+                         <td><%# Container.DataItem.GetType().GetInterfaces()[0].Name.Remove(0,1) %> </td>
                         <td><%# DataBinder.Eval(Container.DataItem, "CopyInStock") %> </td>
+
+                         <% if (Session["Role"] != "Manager") { %>
                         <td id="<%# DataBinder.Eval(Container.DataItem, "ResourceID") %>">
 
                             <asp:Button 
                             runat="server"
-                            Text="Add to Cart"
+                            Text="Add to Bag"
                             CommandName=<%# DataBinder.Eval(Container.DataItem, "ResourceID") %>
                             CssClass="btn btn-success" 
                             OnClick="AddToCartBtn_Click" 
@@ -109,7 +115,10 @@
                             />
                         
                         </td>
-                    </tr>
+                        <% } %>
+
+                    </tr>        
+                        
                 </ItemTemplate>
                 <FooterTemplate>
                     </table>
