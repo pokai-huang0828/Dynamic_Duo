@@ -16,7 +16,7 @@ namespace OnlineLibrarySystemWeb
         {
             string currentPath = HttpContext.Current.Request.Path;
 
-            if (Session["Email"] == null
+            if (Session["UserId"] == null
                 && currentPath != "/login" 
                 && currentPath != "/register")
                 Response.Redirect("~/login");

@@ -20,7 +20,7 @@ namespace OnlineLibrarySystemWeb
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["UserId"] == null)
-            Response.Redirect("~/login");
+                Response.Redirect("~/login");
 
             int userId = (int)Session["UserId"];
 
