@@ -11,7 +11,6 @@ namespace OnlineLibrarySystemLib
         public string Artist { get; set; }
         public string Genre { get; set; }
         public string Language { get; set; }
-        public string Length { get; set; }
         public int TrackNumber { get ; set ; }
         public float Duration { get ; set ; }
         public string Producer { get ; set ; }

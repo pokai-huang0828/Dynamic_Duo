@@ -4,3 +4,9 @@ C:\Users\eric1\OneDrive\desktop\Dynamic_Duo Project\OnlineLibrarySystem\OnlineLi
 C:\Users\eric1\OneDrive\desktop\Dynamic_Duo Project\OnlineLibrarySystem\OnlineLibrarySystemLib\obj\Debug\OnlineLibrarySystemLib.csproj.CoreCompileInputs.cache
 C:\Users\eric1\OneDrive\desktop\Dynamic_Duo Project\OnlineLibrarySystem\OnlineLibrarySystemLib\obj\Debug\OnlineLibrarySystemLib.dll
 C:\Users\eric1\OneDrive\desktop\Dynamic_Duo Project\OnlineLibrarySystem\OnlineLibrarySystemLib\obj\Debug\OnlineLibrarySystemLib.pdb
+D:\VCC\1303\1303_group\Dynamic_Duo\OnlineLibrarySystem\OnlineLibrarySystemLib\bin\Debug\OnlineLibrarySystemLib.dll
+D:\VCC\1303\1303_group\Dynamic_Duo\OnlineLibrarySystem\OnlineLibrarySystemLib\bin\Debug\OnlineLibrarySystemLib.pdb
+D:\VCC\1303\1303_group\Dynamic_Duo\OnlineLibrarySystem\OnlineLibrarySystemLib\obj\Debug\OnlineLibrarySystemLib.csprojAssemblyReference.cache
+D:\VCC\1303\1303_group\Dynamic_Duo\OnlineLibrarySystem\OnlineLibrarySystemLib\obj\Debug\OnlineLibrarySystemLib.csproj.CoreCompileInputs.cache
+D:\VCC\1303\1303_group\Dynamic_Duo\OnlineLibrarySystem\OnlineLibrarySystemLib\obj\Debug\OnlineLibrarySystemLib.dll
+D:\VCC\1303\1303_group\Dynamic_Duo\OnlineLibrarySystem\OnlineLibrarySystemLib\obj\Debug\OnlineLibrarySystemLib.pdb

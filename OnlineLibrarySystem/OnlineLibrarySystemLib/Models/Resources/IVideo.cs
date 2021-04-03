@@ -10,7 +10,7 @@ namespace OnlineLibrarySystemLib
     {
          int TrackNumber { get; set; }
          float Duration { get; set; }
-         int Producer { get; set; }
+         string Producer { get; set; }
          string Genre { get; set; }
     }
 }
