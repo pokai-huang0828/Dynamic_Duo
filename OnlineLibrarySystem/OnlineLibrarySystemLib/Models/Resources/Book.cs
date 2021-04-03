@@ -13,7 +13,7 @@ namespace OnlineLibrarySystemLib
         public string Genre { get; set; }
         public int NumberOfPages { get; set; }
         public string Publisher { get; set; }
-        public DateTime PublicDate { get; set; }
+        public DateTime PublishDate { get; set; }
         public string Language { get; set; }
         public int ResourceID { get; set; }
         public string Title { get; set; }

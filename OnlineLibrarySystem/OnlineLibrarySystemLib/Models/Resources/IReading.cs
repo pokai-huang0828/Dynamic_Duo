@@ -10,7 +10,7 @@ namespace OnlineLibrarySystemLib
     {
          int NumberOfPages { get; set; }
          string Publisher { get; set; }
-         DateTime PublicDate { get; set; }
+         DateTime PublishDate { get; set; }
          string Language { get; set; }
     }
 }

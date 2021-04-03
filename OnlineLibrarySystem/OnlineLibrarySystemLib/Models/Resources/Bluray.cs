@@ -8,11 +8,10 @@ namespace OnlineLibrarySystemLib
 {
     public class Bluray : IVideo
     {
-        public string Length { get; set; }
         public string Language { get; set; }
         public int TrackNumber { get; set; }
-        public float Duration { get; set; }
-        public int Producer { get; set; }
+        public float DurationInMins { get; set; }
+        public string Producer { get; set; }
         public string Genre { get; set; }
         public int ResourceID { get; set; }
         public string Title { get; set; }

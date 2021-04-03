@@ -7,25 +7,24 @@
     <div class="jumbotron my-2 py-3 px-3">
 
         <h2><%: Title %></h2>
-                    
-        <div class="row d-flex text-center" style="color:red; font-weight:bold;"><%= ErrorText %></div>
 
- <asp:Repeater ID="DetailPropertyRepeater" runat="server">
-                <HeaderTemplate>
-                    <table class="table table-info table-striped table-hover" border="0" style="overflow: auto;">
-                </HeaderTemplate>
-                <ItemTemplate>
-                    <tr>
-                        <td><%# DataBinder.Eval(Container.DataItem, "key") %> </td>
-                        <td><%# DataBinder.Eval(Container.DataItem, "value")??"N/A" %> </td>
-                    </tr>        
-                </ItemTemplate>
-                <FooterTemplate>
-                    </table>
-                </FooterTemplate>
-            </asp:Repeater>
+        <div class="row d-flex text-center" style="color: red; font-weight: bold;"><%= ErrorText %></div>
+
+        <asp:Repeater ID="DetailPropertyRepeater" runat="server">
+            <HeaderTemplate>
+                <table class="table table-info table-striped table-hover" border="0" style="overflow: auto;">
+            </HeaderTemplate>
+            <ItemTemplate>
+                <tr>
+                    <td><%# DataBinder.Eval(Container.DataItem, "key") %> </td>
+                    <td><%# DataBinder.Eval(Container.DataItem, "value")??"N/A" %> </td>
+                </tr>
+            </ItemTemplate>
+            <FooterTemplate>
+                </table>
+            </FooterTemplate>
+        </asp:Repeater>
     </div>
-
 
 </asp:Content>
 

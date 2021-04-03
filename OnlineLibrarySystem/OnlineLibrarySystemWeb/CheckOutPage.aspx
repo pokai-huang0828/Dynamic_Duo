@@ -35,13 +35,13 @@
             <FooterTemplate>
                 </table>
                     
-                    <div class="row d-flex text-center" style="color:red; font-weight:bold;"><%= ErrorText %></div>
+                <div class="row d-flex text-center container" style="color:red; font-weight:bold;"><%= ErrorText %></div>
 
-                <div class="row d-flex my-2" style="text-align:center">
+                <div class="row d-flex my-2 container" style="text-align:center">
                     <asp:Button
                         runat="server"
                         ID="checkOutBtn"
-                        CssClass="btn btn-success"
+                        CssClass="btn btn-success btn-lg"
                         OnClick="CheckOutBtn_Click"
                         CausesValidation="False"
                         Text="Check Out Now" />

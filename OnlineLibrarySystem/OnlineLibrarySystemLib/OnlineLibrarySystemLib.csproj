@@ -67,8 +67,9 @@
     <Compile Include="Models\Users\IUser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositiories\CheckOutRepository.cs" />
-    <Compile Include="Repositiories\DisplayCheckOutItem.cs" />
+    <Compile Include="Models\Records\DisplayCheckOutItem.cs" />
     <Compile Include="Repositiories\ILibraryRepository.cs" />
+    <Compile Include="Models\Records\PropertyItem.cs" />
     <Compile Include="Repositiories\ResourceRepository.cs" />
     <Compile Include="Repositiories\UserRepository.cs" />
     <Compile Include="Repositiories\WaitListItemRepository.cs" />

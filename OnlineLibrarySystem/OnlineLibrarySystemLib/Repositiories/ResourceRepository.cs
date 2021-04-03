@@ -103,5 +103,45 @@ namespace OnlineLibrarySystemLib
                 .Where(u => u.Title.ToLower().Contains(name.ToLower())).ToList();
         }
 
+        public List<PropertyItem> GetResourceDetails(int resourceID)
+        {
+            IResource resource = GetByID(resourceID);
+            if (resource == null)
+                throw new ArgumentException("Sorry. The item you requested is not available.");
+
+            var properties = new List<PropertyItem>();
+
+            foreach (var property in resource.GetType().GetProperties())
+            {
+                StringBuilder sb = new StringBuilder();
+
+                var charArray = (property.Name).ToCharArray();
+
+                foreach (var letter in charArray)
+                {
+                    if (!Char.IsUpper(letter))
+                        sb.Append(letter);
+                    else
+                        sb.Append(" " + letter);
+                }
+
+                properties.Add(
+                    new PropertyItem(sb.ToString(), property.GetValue(resource)));
+            }
+
+            var resourceIDProperty = properties.Find(p => p.Key == " Resource I D");
+            if (resourceIDProperty != null)
+                resourceIDProperty.Key = " Resource ID";
+
+            var publishDateProperty = properties.Find(p => p.Key == " Publish Date");
+            if (publishDateProperty != null)
+                publishDateProperty.Value = ((DateTime)publishDateProperty.Value).ToShortDateString();
+
+            properties.Sort((p, k) => p.Key.CompareTo(k.Key));
+
+            return properties;
+        }
     }
+
 }
+

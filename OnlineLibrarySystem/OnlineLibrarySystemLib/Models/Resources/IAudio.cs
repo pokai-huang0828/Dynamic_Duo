@@ -9,7 +9,7 @@ namespace OnlineLibrarySystemLib
     public interface IAudio : IResource
     {
         int TrackNumber { get; set; }
-        float Duration { get; set; }
+        float DurationInMins { get; set; }
         string Producer { get; set; }
     }
 }

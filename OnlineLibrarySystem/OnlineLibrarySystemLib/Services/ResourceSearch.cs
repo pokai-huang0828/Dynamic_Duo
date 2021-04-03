@@ -7,15 +7,15 @@ using System.Threading.Tasks;
 
 namespace OnlineLibrarySystemLib.Services
 {
-    public class ResourceSearch: IBasicSearch<IResource, ResourceType>
+    public class ResourceSearch : IBasicSearch<IResource, ResourceType>
     {
         private ResourceRepository resourceRepository;
-        
+
         public ResourceSearch()
         {
             resourceRepository = new ResourceRepository();
         }
-        
+
         public IEnumerable<IResource> FindByCategory(ResourceType resourceType)
         {
             return resourceRepository.GetResourceByResourceType(resourceType);
@@ -26,8 +26,8 @@ namespace OnlineLibrarySystemLib.Services
             return resourceRepository.GetResourceByName(name);
         }
 
-        public IEnumerable<IResource> SearchRespository (
-            string keyword, string category, string searchType )
+        public IEnumerable<IResource> SearchRespository(
+            string keyword, string category, string searchType)
         {
             var results = new List<IResource>();
 
@@ -52,7 +52,7 @@ namespace OnlineLibrarySystemLib.Services
                     break;
             }
 
-            if(searchType == "author" &&  keyword != "")
+            if (searchType == "author" && keyword != "")
             {
                 results = results.Where(r => r is Book &&
                 ((Book)r).Author != null &&
@@ -76,5 +76,6 @@ namespace OnlineLibrarySystemLib.Services
 
             return results;
         }
+
     }
 }
