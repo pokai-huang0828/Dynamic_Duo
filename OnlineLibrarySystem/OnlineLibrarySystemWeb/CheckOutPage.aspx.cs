@@ -17,24 +17,23 @@ namespace OnlineLibrarySystemWeb
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            DisplayCheckOutItems();
+            UpdateUI();
         }
 
         protected void CheckOutBtn_Click(object sender, EventArgs e)
         {
-            int userID = (int)Session["UserId"];
-            List<int> resourceIDs = (List<int>)Session["resourceIds"];
+            int userID = GetUserIDFromSession();
+            List<int> resourceIDs = GetResourceIdsFromSession();
+
             try
             {
-                var checkOut = new OnlineLibrarySystemLib.CheckOut(userID, resourceIDs, DateTime.Now);
-                var checkOutRepository = new CheckOutRepository();
-                checkOutRepository.Add(checkOut);
-                Session["resourceIds"] = new List<int>();
-                DisplayCheckOutItems();
+                CreateAndStoreCheckOut(userID, resourceIDs);
+                ClearResourceIdsInSession();
+                UpdateUI();
             }
-            catch(ArgumentException ex)
+            catch (ArgumentException ex)
             {
-                ErrorText = ex.Message;
+                SetErrorText(ex.Message);
             }
         }
 
@@ -43,23 +42,23 @@ namespace OnlineLibrarySystemWeb
             Button b = sender as Button;
             int resourceID = Int32.Parse(b.CommandName);
 
-            var resourceIds = (List<int>)Session["resourceIds"];
+            var resourceIds = GetResourceIdsFromSession();
             resourceIds.Remove(resourceID);
-            Session["resourceIds"] = resourceIds;
+            SetResourceIdsToSession(resourceIds);
 
-            DisplayCheckOutItems();
+            UpdateUI();
         }
 
-        protected void DisplayCheckOutItems()
+        protected void UpdateUI()
         {
             var resourceRepository = new ResourceRepository();
+            var resourceIds = GetResourceIdsFromSession();
 
-            var resourceIds = Session["resourceIds"];
             _preCheckOutList = new List<IResource>();
 
             if (resourceIds != null)
             {
-                ((List<int>)resourceIds).ForEach(id =>
+                resourceIds.ForEach(id =>
                 {
                     var resource = resourceRepository.GetByID(id);
 
@@ -72,5 +71,37 @@ namespace OnlineLibrarySystemWeb
             checkOutRepeater.DataBind();
         }
 
+        private static void CreateAndStoreCheckOut(int userID, List<int> resourceIDs)
+        {
+            var checkOut = new OnlineLibrarySystemLib.CheckOut(userID, resourceIDs, DateTime.Now);
+            var checkOutRepository = new CheckOutRepository();
+
+            checkOutRepository.Add(checkOut);
+        }
+
+        private int GetUserIDFromSession()
+        {
+            return (int)Session["UserId"];
+        }
+
+        private void SetResourceIdsToSession(List<int> resourceIds)
+        {
+            Session["resourceIds"] = resourceIds;
+        }
+
+        private List<int> GetResourceIdsFromSession()
+        {
+            return (List<int>)Session["resourceIds"];
+        }
+
+        private void ClearResourceIdsInSession()
+        {
+            Session["resourceIds"] = new List<int>();
+        }
+
+        private void SetErrorText(string errorText)
+        {
+            ErrorText = errorText;
+        }
     }
 }

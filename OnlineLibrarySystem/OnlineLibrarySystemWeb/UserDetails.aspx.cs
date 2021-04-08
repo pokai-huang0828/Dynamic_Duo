@@ -67,6 +67,7 @@ namespace OnlineLibrarySystemWeb
             int resourceID = Int32.Parse(IDs[1]);
 
             CheckOutUtils.ProcessReturnItems(checkOutID, resourceID);
+
             UpdateUI();
         }
     }

@@ -13,7 +13,9 @@ namespace OnlineLibrarySystemWeb
 {
     public partial class Details : System.Web.UI.Page
     {
-        public String ErrorText = "";
+        private List<PropertyItem> resourceDetails;
+        private List<int> borrowedUserIds;
+        public string ErrorText = "";
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -21,19 +23,22 @@ namespace OnlineLibrarySystemWeb
 
             if (resourceIdQuery == null)
             {
-                ErrorText = "Sorry. This url request is invalid.";
+                SetErrorText("Sorry. This url request is invalid.");
                 return;
             }
 
-            List<PropertyItem> resourceDetails = null;
-            List<int> borrowedUserIds = null;
+            PopulateRepeaters(resourceIdQuery);
+        }
 
+        private void PopulateRepeaters(string resourceIdQuery)
+        {
             try
             {
                 int resourceID = Int32.Parse(resourceIdQuery);
-                ResourceRepository resourceRepository = new ResourceRepository();
 
+                ResourceRepository resourceRepository = new ResourceRepository();
                 resourceDetails = resourceRepository.GetResourceDetails(resourceID);
+
                 borrowedUserIds = CheckOutUtils.ReturnUserIdsOfABorrowingResource(resourceID);
             }
             catch (Exception ex)
@@ -47,6 +52,10 @@ namespace OnlineLibrarySystemWeb
             BorrowedUsersRepeater.DataSource = borrowedUserIds;
             BorrowedUsersRepeater.DataBind();
         }
-        
+
+        private void SetErrorText(string errorText)
+        {
+            ErrorText = errorText;
+        }
     }
 }
