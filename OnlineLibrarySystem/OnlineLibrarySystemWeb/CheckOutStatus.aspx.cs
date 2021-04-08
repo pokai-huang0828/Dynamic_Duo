@@ -15,23 +15,29 @@ namespace OnlineLibrarySystemWeb
         
         protected void Page_Load(object sender, EventArgs e)
         {
-            int checkoutId;
+            var checkoutId = ParseCheckOutIdQuery();
 
-            if (Int32.TryParse(Request.QueryString["checkOutId"], out checkoutId)) 
+            var checkOutRepository = new CheckOutRepository();
+            var checkOutItem = checkOutRepository.GetByID(checkoutId);
+
+            if (checkOutItem != null)
             {
-                var checkOutRepository = new CheckOutRepository();
-                var checkOutItem = checkOutRepository.GetByID(checkoutId);
-
-                if (checkOutItem != null)
-                {
-                    deliveryStatus = checkOutItem.deliveryStatus;
-                    return;
-                }
-
+                deliveryStatus = checkOutItem.deliveryStatus;
+                return;
             };
-            
-            deliveryStatus = DeliveryStatus.Unknown;
 
+            deliveryStatus = DeliveryStatus.Unknown;
+        }
+
+        private int ParseCheckOutIdQuery()
+        {
+            int.TryParse(GetCheckOutIdQuery(), out int checkoutId);
+            return checkoutId;
+        }
+
+        private string GetCheckOutIdQuery()
+        {
+            return Request.QueryString["checkOutId"];
         }
     }
 }

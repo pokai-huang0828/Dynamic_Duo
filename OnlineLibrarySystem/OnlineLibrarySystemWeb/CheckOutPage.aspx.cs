@@ -29,6 +29,7 @@ namespace OnlineLibrarySystemWeb
             {
                 CreateAndStoreCheckOut(userID, resourceIDs);
                 ClearResourceIdsInSession();
+
                 UpdateUI();
             }
             catch (ArgumentException ex)
