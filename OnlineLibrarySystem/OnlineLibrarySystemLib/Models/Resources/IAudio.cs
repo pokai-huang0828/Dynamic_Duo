@@ -11,5 +11,6 @@ namespace OnlineLibrarySystemLib
         int TrackNumber { get; set; }
         float DurationInMins { get; set; }
         string Producer { get; set; }
+
     }
 }

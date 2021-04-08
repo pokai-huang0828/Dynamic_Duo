@@ -1,5 +1,6 @@
 ﻿using OnlineLibrarySystemLib;
 using OnlineLibrarySystemLib.Services;
+using OnlineLibrarySystemLib.UnitsOfWork;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,11 +21,12 @@ namespace OnlineLibrarySystemWeb
 
             if (resourceIdQuery == null)
             {
-                ErrorText = "Sorry. This url is invalid.";
+                ErrorText = "Sorry. This url request is invalid.";
                 return;
             }
 
             List<PropertyItem> resourceDetails = null;
+            List<int> borrowedUserIds = null;
 
             try
             {
@@ -32,6 +34,7 @@ namespace OnlineLibrarySystemWeb
                 ResourceRepository resourceRepository = new ResourceRepository();
 
                 resourceDetails = resourceRepository.GetResourceDetails(resourceID);
+                borrowedUserIds = CheckOutUtils.ReturnUserIdsOfABorrowingResource(resourceID);
             }
             catch (Exception ex)
             {
@@ -40,6 +43,9 @@ namespace OnlineLibrarySystemWeb
 
             DetailPropertyRepeater.DataSource = resourceDetails;
             DetailPropertyRepeater.DataBind();
+
+            BorrowedUsersRepeater.DataSource = borrowedUserIds;
+            BorrowedUsersRepeater.DataBind();
         }
         
     }

@@ -9,7 +9,7 @@ namespace OnlineLibrarySystemLib.Services
 {
     public class ResourceSearch : IBasicSearch<IResource, ResourceType>
     {
-        private ResourceRepository resourceRepository;
+        private ResourceRepository resourceRepository; 
 
         public ResourceSearch()
         {

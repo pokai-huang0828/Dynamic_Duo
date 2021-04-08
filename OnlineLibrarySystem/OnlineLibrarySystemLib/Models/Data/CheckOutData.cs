@@ -1,4 +1,5 @@
-﻿using System;
+﻿using OnlineLibrarySystemLib.Models.Enum;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -36,9 +37,9 @@ namespace OnlineLibrarySystemLib.Models.Data
         private static List<CheckOut> GetCheckouts()
         {
             return new List<CheckOut>() {
-                new CheckOut(1, new List<int>() { 1,2,3}, new DateTime(2021, 2, 27)){ ID =1},
-                new CheckOut(2, new List<int>() { 4,5,6}, new DateTime(2021, 2, 23)){ ID =2},
-                new CheckOut(1, new List<int>() { 4,7,8}, new DateTime(2021, 2, 22)){ ID =3}
+                new CheckOut(1, new List<int>() { 1,2}, new DateTime(2021, 2, 27)){ ID =1, ReturnedResourceIDs = new List<int>() { 3, 4}, deliveryStatus=DeliveryStatus.AwaitingPickUp},
+                new CheckOut(2, new List<int>() { 4,5,6}, new DateTime(2021, 2, 23)){ ID =2, deliveryStatus=DeliveryStatus.InTransit},
+                new CheckOut(1, new List<int>() { 4,7,8}, new DateTime(2021, 2, 22)){ ID =3, deliveryStatus=DeliveryStatus.InWarehouse}
             };
         }
     }

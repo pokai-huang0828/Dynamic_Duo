@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using OnlineLibrarySystemLib;
+using OnlineLibrarySystemLib.Models.Enum;
 using OnlineLibrarySystemLib.Services;
 
 namespace OnlineLibrarySystemTesting
@@ -74,17 +75,24 @@ namespace OnlineLibrarySystemTesting
                         rpos.GetAll().ToList().ForEach(r => Console.WriteLine(r.ResourceID + " " + r.CopyInStock));*/
 
             // Testing for Displaying Item Details
-            ResourceRepository rpos = new ResourceRepository();
-            var items = rpos.GetAll();
+            /*            ResourceRepository rpos = new ResourceRepository();
+                        var items = rpos.GetAll();
 
-            foreach (var item in items)
-            {
-                foreach (var property in item.GetType().GetProperties())
-                {
-                    Console.WriteLine(property.Name + " = " + property.GetValue(item)?? "null");
-                }
-            }
+                        foreach (var item in items)
+                        {
+                            foreach (var property in item.GetType().GetProperties())
+                            {
+                                Console.WriteLine(property.Name + " = " + property.GetValue(item)?? "null");
+                            }
+                        }*/
 
+            // Test updating checkout delivery status
+            CheckOutRepository checkOutRepository = new CheckOutRepository();
+            var item = checkOutRepository.GetByID(1);
+            item.deliveryStatus = DeliveryStatus.InTransit;
+            checkOutRepository.Update(item);
+
+            Console.WriteLine(checkOutRepository.GetByID(1).deliveryStatus);
 
 
             Console.ReadLine();

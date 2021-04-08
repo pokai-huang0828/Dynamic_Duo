@@ -71,18 +71,80 @@ namespace OnlineLibrarySystemLib.UnitsOfWork
                     foreach (var resourceId in c.ResourceIDs)
                     {
                         var resource = resourceRepository.GetByID(resourceId);
+                        var isReturn = IsResourceReturn(c.ID, resourceId);
 
                         var displayCheckOutItem = new DisplayCheckOutItem(
-                            resource.ResourceID, resource.Title,
-                            c.CheckOutDate, c.DueDate);
+                            c.ID,
+                            resource.ResourceID, 
+                            resource.Title,
+                            c.CheckOutDate, 
+                            c.DueDate,
+                            isReturn);
 
                         checkOutItems.Add(displayCheckOutItem);
                     }
+
+                    foreach (var resourceId in c.ReturnedResourceIDs)
+                    {
+                        var resource = resourceRepository.GetByID(resourceId);
+                        var isReturn = IsResourceReturn(c.ID, resourceId);
+
+                        var displayCheckOutItem = new DisplayCheckOutItem(
+                            c.ID,
+                            resource.ResourceID,
+                            resource.Title,
+                            c.CheckOutDate,
+                            c.DueDate,
+                            isReturn);
+
+                        checkOutItems.Add(displayCheckOutItem);
+                    }
+
                 });
 
             checkOutItems.Sort((c, d) => d.DueDate.CompareTo(c.DueDate));
 
             return checkOutItems;
+        }
+
+        public static bool IsResourceReturn(int checkOutId, int resourceId)
+        {
+            var checkOutRepository = new CheckOutRepository();
+
+            var checkOutItem = checkOutRepository.GetByID(checkOutId);
+
+            if (checkOutItem == null)
+                throw new ArgumentException("Invalid CheckOut ID");
+
+            return !(checkOutItem.ResourceIDs.Contains(resourceId));
+        }
+
+        public static void ProcessReturnItems(int checkOutId, int resourceId)
+        {
+            var checkOutRepository = new CheckOutRepository();
+            var resourceRepository = new ResourceRepository();
+
+            var checkOutItem = checkOutRepository.GetByID(checkOutId);
+
+            if (checkOutItem == null)
+                throw new ArgumentException("Invalid CheckOut ID");
+
+            checkOutItem.ResourceIDs.RemoveAll(i => i == resourceId);
+            checkOutItem.ReturnedResourceIDs.Add(resourceId);
+            resourceRepository.IncrementResourceCopies(resourceId);
+        }
+
+        public static List<int> ReturnUserIdsOfABorrowingResource(int resourceId)
+        {
+            var checkOutRepository = new CheckOutRepository();
+            var userIDs = new List<int>();
+
+            checkOutRepository.GetAll()
+                .Where(c => c.ResourceIDs.Contains(resourceId))
+                .ToList()
+                .ForEach(c => userIDs.Add(c.UserID));
+
+            return userIDs;
         }
 
     }

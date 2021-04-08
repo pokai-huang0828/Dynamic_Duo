@@ -14,5 +14,17 @@ namespace OnlineLibrarySystemLib
         public string Province { get; set; }
         public string Country { get; set; }
         public string PostalCode { get; set; }
+
+        public override string ToString() 
+        {
+            return String.Format("{0} {1} {2} {3} {4} {5}",
+                         Unit,
+                         Street,
+                         City,
+                         Province,
+                         Country,
+                         PostalCode);
+        }
+
     }
 }

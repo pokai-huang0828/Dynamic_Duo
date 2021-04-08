@@ -1,4 +1,5 @@
 ﻿using OnlineLibrarySystemLib.Models.Data;
+using OnlineLibrarySystemLib.Models.Enum;
 using OnlineLibrarySystemLib.UnitsOfWork;
 using System;
 using System.Collections.Generic;

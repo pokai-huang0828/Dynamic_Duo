@@ -9,30 +9,44 @@
         <h2><%: Title %></h2>
 
         <div style="overflow-y: hidden;">
-        <asp:Repeater ID="historyRepeater" runat="server">
-            <HeaderTemplate>
-                <table class="table table-info table-striped table-hover" border="0">
+            <asp:Repeater ID="historyRepeater" runat="server">
+                <HeaderTemplate>
+                    <table class="table table-info table-striped table-hover" border="0">
+                        <tr>
+                            <td><b>Checkout ID</b></td>
+                            <td><b>Resource ID</b></td>
+                            <td><b>Title</b></td>
+                            <td><b>Check Out Date</b></td>
+                            <td><b>Due Date</b></td>
+                            <td><b>Resource Status</b></td>
+                        </tr>
+                </HeaderTemplate>
+                <ItemTemplate>
                     <tr>
-                        <td><b>Resource ID</b></td>
-                        <td><b>Title</b></td>
-                        <td><b>Check Out Date</b></td>
-                        <td><b>Due Date</b></td>
+                        <td>
+                            <a href="checkoutstatus?checkOutId=<%# DataBinder.Eval(Container.DataItem, "checkOutID") %>">
+                            <%# DataBinder.Eval(Container.DataItem, "checkOutID") %> 
+                            </a>
+                        </td>
+                        <td>
+                            <a href="details?resourceId=<%# DataBinder.Eval(Container.DataItem, "resourceID") %>">
+                                <%# DataBinder.Eval(Container.DataItem, "resourceID") %> 
+                            </a>
+                        </td>
+                        <td><%# DataBinder.Eval(Container.DataItem, "title") %> </td>
+                        <td><%# ((DateTime)DataBinder.Eval(Container.DataItem, "CheckOutDate")).ToShortDateString() %> </td>
+                        <td><%# ((DateTime)DataBinder.Eval(Container.DataItem, "dueDate")).ToShortDateString() %> </td>
+                        <td>
+                            <%#((Boolean)DataBinder.Eval(Container.DataItem, "isReturn"))? "Returned": "<b>Borrowed</b>" %> 
+                        </td>
                     </tr>
-            </HeaderTemplate>
-            <ItemTemplate>
-                <tr>
-                    <td><%# DataBinder.Eval(Container.DataItem, "resourceID") %> </td>
-                    <td><%# DataBinder.Eval(Container.DataItem, "title") %> </td>
-                    <td><%# ((DateTime)DataBinder.Eval(Container.DataItem, "CheckOutDate")).ToShortDateString() %> </td>
-                    <td><%# ((DateTime)DataBinder.Eval(Container.DataItem, "dueDate")).ToShortDateString() %> </td>
-                </tr>
-            </ItemTemplate>
-            <FooterTemplate>
-                </table>
-            </FooterTemplate>
-        </asp:Repeater>
+                </ItemTemplate>
+                <FooterTemplate>
+                    </table>
+                </FooterTemplate>
+            </asp:Repeater>
 
-    </div>
+        </div>
     </div>
 
 </asp:Content>

@@ -98,6 +98,14 @@
         <div class="container body-content">
             <asp:ContentPlaceHolder ID="MainContent" runat="server">
             </asp:ContentPlaceHolder>
+            
+            <% if (HttpContext.Current.Request.Path != "/login" 
+                    && HttpContext.Current.Request.Path != "/register"){%>
+            <div class="d-flex justify-content-center py-1">
+              <a class="btn btn-primary" href="Default.aspx">Home</a>
+            </div>
+            <%}%>
+
             <hr />
             <footer>
                 <p><small>&copy; <%: DateTime.Now.Year %> - Online Library System 

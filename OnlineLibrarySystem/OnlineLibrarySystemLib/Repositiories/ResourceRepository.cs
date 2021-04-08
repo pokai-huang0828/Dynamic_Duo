@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace OnlineLibrarySystemLib
 {
-    public class ResourceRepository : ILibraryRespository<IResource>
+    public class ResourceRepository : ILibraryRespository<IResource> 
     {
         public int Add(IResource item)
         {
@@ -38,8 +38,10 @@ namespace OnlineLibrarySystemLib
             var resource = GetByID(id);
 
             if(resource.CopyInStock > 0)
+            {
                 resource.CopyInStock--;
-        }
+            }
+        }        
         
         public void IncrementResourceCopies(int id)
         {
@@ -141,6 +143,7 @@ namespace OnlineLibrarySystemLib
 
             return properties;
         }
+
     }
 
 }

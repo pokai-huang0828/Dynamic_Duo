@@ -86,8 +86,14 @@
                 <ItemTemplate>
                     
                     <tr>
-                        <td><%# DataBinder.Eval(Container.DataItem, "ResourceID") %> </td>
-                        <td><a href="details?resourceId=<%# DataBinder.Eval(Container.DataItem, "ResourceID") %>"><%# DataBinder.Eval(Container.DataItem, "Title") %></a></td>
+                        <td>
+                            <a href="details?resourceId=<%# DataBinder.Eval(Container.DataItem, "ResourceID") %>">
+                            <%# DataBinder.Eval(Container.DataItem, "ResourceID") %> 
+                            </a>
+                        </td>
+                        <td>
+                                <%# DataBinder.Eval(Container.DataItem, "Title") %>
+                        </td>
                          <td><%# Container.DataItem.GetType().GetInterfaces()[0].Name.Remove(0,1) %> </td>
                         <td><%# DataBinder.Eval(Container.DataItem, "CopyInStock") %> </td>
 
@@ -138,7 +144,11 @@
                 </HeaderTemplate>
                 <ItemTemplate>
                     <tr>
-                        <td><%# DataBinder.Eval(Container.DataItem, "UserID") %> </td>
+                        <td>
+                            <a href="userdetails?userId=<%# DataBinder.Eval(Container.DataItem, "UserID") %>">
+                            <%# DataBinder.Eval(Container.DataItem, "UserID") %>
+                            </a>
+                        </td>
                         <td><%# Container.DataItem.GetType().Name %> </td>
                         <td><%# DataBinder.Eval(Container.DataItem, "FirstName") %> </td>
                         <td><%# DataBinder.Eval(Container.DataItem, "LastName") %> </td>

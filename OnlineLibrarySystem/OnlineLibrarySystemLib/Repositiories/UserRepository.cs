@@ -74,5 +74,46 @@ namespace OnlineLibrarySystemLib
             }
         }
 
+        public List<PropertyItem> GetUserDetails(int userID)
+        {
+            IUser user = GetByID(userID);
+            if (user == null)
+                throw new ArgumentException("Sorry. The item you requested is not available.");
+
+            var properties = new List<PropertyItem>();
+
+            foreach (var property in user.GetType().GetProperties())
+            {
+                StringBuilder sb = new StringBuilder();
+
+                var charArray = (property.Name).ToCharArray();
+
+                foreach (var letter in charArray)
+                {
+                    if (!Char.IsUpper(letter))
+                        sb.Append(letter);
+                    else
+                        sb.Append(" " + letter);
+                }
+
+                properties.Add(
+                    new PropertyItem(sb.ToString(), property.GetValue(user)));
+            }
+
+            var passwordProperty = properties.RemoveAll(p => p.Key == " Password");
+
+            var dateOfBirthProperty = properties.Find(p => p.Key == " Date Of Birth");
+            if (dateOfBirthProperty != null)
+                dateOfBirthProperty.Value = ((DateTime)dateOfBirthProperty.Value).ToShortDateString();
+
+            var addressProperty = properties.Find(p => p.Key == " Address");
+            if (addressProperty.Value != null)
+                addressProperty.Value = addressProperty.Value.ToString();
+
+            properties.Sort((p, k) => p.Key.CompareTo(k.Key));
+
+            return properties;
+        }
+
     }
 }

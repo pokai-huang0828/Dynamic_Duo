@@ -45,6 +45,7 @@
     <Compile Include="Models\Data\ResourceData.cs" />
     <Compile Include="Models\Data\UserData.cs" />
     <Compile Include="Models\Data\WishListData.cs" />
+    <Compile Include="Models\Enum\DeliveryStatus.cs" />
     <Compile Include="Models\Enum\ResourceType.cs" />
     <Compile Include="Models\Enum\UserType.cs" />
     <Compile Include="Models\Records\CheckOut.cs" />
@@ -79,6 +80,7 @@
     <Compile Include="Services\ResourceSearch.cs" />
     <Compile Include="Services\UserSearch.cs" />
     <Compile Include="UnitsOfWork\CheckOutUtils.cs" />
+    <Compile Include="UnitsOfWork\DeliveryService.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

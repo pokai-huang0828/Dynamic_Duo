@@ -42,7 +42,8 @@ namespace OnlineLibrarySystemLib.Models.Data
                     FirstName = "Pokai",
                     LastName="Haung",
                     Gender = Gender.Male,
-                    DateOfBirth = new DateTime(1992,8,24)
+                    DateOfBirth = new DateTime(1992,8,24),
+                    Address = new Address{ Street = "1234", Unit = "401", City = "Burnaby", Country="Canada", Province="BC", PostalCode="V5E 4J2"}
                 },
                 new Customer("david@library.com", "123"){
                     UserId = 2,

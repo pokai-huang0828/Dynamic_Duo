@@ -8,7 +8,6 @@ namespace OnlineLibrarySystemLib
 {
     public class Customer : IUser
     {
-        public float UnpaidFine { get; set; }
         public int UserId { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }

@@ -34,7 +34,10 @@ namespace OnlineLibrarySystemWeb
             bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
                             "~/Scripts/modernizr-*"));
 
-            
+            bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
+                "~/Scripts/jquery-3.4.1.js"));
+
+
         }
     }
 }

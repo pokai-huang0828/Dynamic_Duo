@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineLibrarySystemWeb", "O
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineLibrarySystemTesting", "OnlineLibrarySystemTesting\OnlineLibrarySystemTesting.csproj", "{2694C094-4C9D-42CA-A1F2-5E5EFB8BCE4B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineLibrarySystemAPI", "OnlineLibrarySystemAPI\OnlineLibrarySystemAPI.csproj", "{70EAFFC7-B5C6-4659-88D9-B62BA6847CC6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{2694C094-4C9D-42CA-A1F2-5E5EFB8BCE4B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2694C094-4C9D-42CA-A1F2-5E5EFB8BCE4B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2694C094-4C9D-42CA-A1F2-5E5EFB8BCE4B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{70EAFFC7-B5C6-4659-88D9-B62BA6847CC6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{70EAFFC7-B5C6-4659-88D9-B62BA6847CC6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{70EAFFC7-B5C6-4659-88D9-B62BA6847CC6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{70EAFFC7-B5C6-4659-88D9-B62BA6847CC6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
